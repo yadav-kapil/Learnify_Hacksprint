@@ -1,4 +1,4 @@
-const LIMIT = 3;
+const LIMIT = 5;
 
 export const getUsage = () => {
   const today = new Date().toDateString();
