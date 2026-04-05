@@ -1,24 +1,23 @@
 .mainWrapper {
   position: absolute;
-  top: 40%;
-  left: 10%;
+  top: 50%;
+  left: 8%;
   transform: translateY(-50%);
   color: white;
   font-family: "Outfit", sans-serif;
   z-index: 10;
-  max-width: 500px;
+  max-width: 520px;
 }
 
-/* --- Text Section --- */
+/* Text */
 .mainContent {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  position: relative;
+  gap: 14px;
 }
 
 .mainContent h1 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -30,68 +29,63 @@
 }
 
 .mainContent h2 {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.8);
-  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.75);
 }
 
-/* --- Info Card --- */
+/* Info Card */
 .infoCard {
   position: absolute;
-  top: 130%; /* directly below mainContent */
+  top: 120%;
   left: 0;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  padding: 20px;
-  border-radius: 20px;
+  width: 420px;
+  padding: 18px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
   display: none;
   flex-direction: column;
-  gap: 10px;
-  width: 450px;
-  transition: all 0.8s ease;
+  gap: 12px;
+
+  transition: all 0.5s ease;
 }
 
-/* show card on hover */
+/* Hover show */
 .clickable:hover ~ .infoCard,
 .mainWrapper:hover .infoCard {
   display: flex;
-  animation: fadeIn 1s ease forwards;
+  animation: fadeIn 0.6s ease forwards;
 }
 
-/* inner info layout */
+/* Inner */
 .mainInfo {
   display: flex;
-  gap: 15px;
   align-items: center;
+  gap: 12px;
 }
 
 .mainInfo img {
-  width: 100px;
-  border-radius: 20px;
+  width: 80px;
+  border-radius: 16px;
 }
 
+/* Arrow */
 .arrowKapil {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 10px;
-  font-size: 1.8rem;
+  margin-left: 8px;
+  font-size: 1.6rem;
   color: #00d4ff;
-  cursor: pointer;
-  transition: transform 0.8s ease, color 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 0 6px rgba(0, 212, 255, 0.6));
+  transition: 0.6s ease;
 }
 
 .mainWrapper h1:hover .arrowKapil {
   transform: rotate(270deg);
-  color: #00ffff;
-  filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.8));
 }
 
-
-/* fade animation */
+/* Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -99,39 +93,38 @@
   }
   to {
     opacity: 1;
-    transform: translateY(-10px);
+    transform: translateY(0);
   }
 }
 
+/* Info text */
 .infoPara {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .infoPara p {
-  margin-bottom: 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
 }
 
+/* Button */
 .btnCollaborate {
-  position: relative;
-  display: inline-block;
-  padding: 12px 28px;
-  font-size: 1rem;
+  padding: 10px 22px;
+  font-size: 0.95rem;
   font-weight: 600;
   color: white;
-  scale: 1.1;
-  background: transparent;
   border-radius: 30px;
+  background: transparent;
   cursor: pointer;
-  overflow: hidden;
-  z-index: 1;
-  font-family: "Outfit", sans-serif;
-  transition: color 0.3s ease, transform 0.3s ease;
   border: none;
+  position: relative;
+  transition: 0.3s ease;
 }
 
-/* Gradient border trick using pseudo-elements */
 .btnCollaborate::before {
   content: "";
   position: absolute;
@@ -139,41 +132,85 @@
   border-radius: 30px;
   padding: 2px;
   background: linear-gradient(135deg, #00d4ff, #007bff, #00ffa3);
-  -webkit-mask-image: none;
-  mask-image: none;
   z-index: -1;
-  transition: all 0.4s ease;
 }
 
-/* Inner background (fills transparent center) */
 .btnCollaborate::after {
   content: "";
   position: absolute;
   inset: 3px;
   border-radius: 28px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   z-index: -1;
-  transition: all 0.4s ease;
 }
 
-/* Hover effect */
 .btnCollaborate:hover {
-  color: #111;
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 .btnCollaborate:hover::after {
   background: linear-gradient(135deg, #00d4ff, #007bff);
 }
 
-.btnCollaborate:hover::before {
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
-}
-
-
-.contactBtn{
+/* Contact Button */
+.contactBtn {
   position: absolute;
   bottom: 15px;
   right: 17px;
-  z-index: 10;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .mainWrapper {
+    position: static;
+    transform: none;
+    width: 100%;
+    padding: 90px 20px 20px;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .mainContent {
+    align-items: center;
+  }
+
+  .mainContent h1 {
+    font-size: 2rem;
+  }
+
+  .mainContent h2 {
+    font-size: 1.1rem;
+  }
+
+  .infoCard {
+    position: relative;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 16px;
+  }
+
+  .mainInfo {
+    flex-direction: column;
+  }
+
+  .mainInfo img {
+    width: 70px;
+  }
+
+  .infoPara p {
+    font-size: 0.9rem;
+  }
+
+  .contactBtn {
+    position: static;
+    margin-top: 20px;
+  }
+
+  .contactBtn {
+    display: none;
+  }
 }

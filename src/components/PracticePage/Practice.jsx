@@ -46,7 +46,7 @@ export default function Practice() {
             setVisibleRight(true);
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     if (leftRef.current) observer.observe(leftRef.current);
@@ -124,8 +124,7 @@ export default function Practice() {
         setAnimatedAnswer((prev) => prev + cleanText[i]);
         await new Promise((r) => setTimeout(r, 20));
         if (answerBoxRef.current) {
-          answerBoxRef.current.scrollTop =
-            answerBoxRef.current.scrollHeight;
+          answerBoxRef.current.scrollTop = answerBoxRef.current.scrollHeight;
         }
       }
     } catch {
@@ -140,59 +139,60 @@ export default function Practice() {
       <div className="title">
         <h1>Practice Mode</h1>
       </div>
+      <div className="practiceContent">
+        {/* LEFT SIDE */}
+        <div
+          ref={leftRef}
+          className={`left fade-in-left ${visibleLeft ? "visible" : ""}`}
+        >
+          <div className="inputBar">
+            <input
+              type="text"
+              placeholder="Enter topic to practice..."
+              value={topic}
+              onChange={(e) => setTopic(e.target.value)}
+            />
+            <button onClick={handleGetQuestion} disabled={qLoading}>
+              {qLoading ? "Loading..." : "Get Question"}
+            </button>
+          </div>
 
-      {/* LEFT SIDE */}
-      <div
-        ref={leftRef}
-        className={`left fade-in-left ${visibleLeft ? "visible" : ""}`}
-      >
-        <div className="inputBar">
-          <input
-            type="text"
-            placeholder="Enter topic to practice..."
-            value={topic}
-            onChange={(e) => setTopic(e.target.value)}
-          />
-          <button onClick={handleGetQuestion} disabled={qLoading}>
-            {qLoading ? "Loading..." : "Get Question"}
-          </button>
+          <div className="questionBox">
+            {qLoading ? (
+              <p className="gradientText">🧠 Generating Question...</p>
+            ) : (
+              <ReactMarkdown
+                children={
+                  displayedQuestion ||
+                  "🧩 Choose a topic to generate a question!"
+                }
+                remarkPlugins={[remarkMath]}
+                rehypePlugins={[rehypeKatex]}
+              />
+            )}
+          </div>
         </div>
 
-        <div className="questionBox">
-          {qLoading ? (
-            <p className="gradientText">🧠 Generating Question...</p>
-          ) : (
+        {/* RIGHT SIDE */}
+        <div
+          ref={rightRef}
+          className={`right fade-in-right ${visibleRight ? "visible" : ""}`}
+        >
+          <div className="answerBox" ref={answerBoxRef}>
+            {status && (
+              <div className="statusBox">
+                <p className="gradientText">{status}</p>
+              </div>
+            )}
+
             <ReactMarkdown
-              children={
-                displayedQuestion || "🧩 Choose a topic to generate a question!"
-              }
+              children={animatedAnswer}
               remarkPlugins={[remarkMath]}
               rehypePlugins={[rehypeKatex]}
             />
-          )}
+          </div>
         </div>
       </div>
-
-      {/* RIGHT SIDE */}
-      <div
-        ref={rightRef}
-        className={`right fade-in-right ${visibleRight ? "visible" : ""}`}
-      >
-        <div className="answerBox" ref={answerBoxRef}>
-          {status && (
-            <div className="statusBox">
-              <p className="gradientText">{status}</p>
-            </div>
-          )}
-
-          <ReactMarkdown
-            children={animatedAnswer}
-            remarkPlugins={[remarkMath]}
-            rehypePlugins={[rehypeKatex]}
-          />
-        </div>
-      </div>
-
       {/* BUTTON */}
       <button
         className="ansBtn"

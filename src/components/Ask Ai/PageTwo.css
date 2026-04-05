@@ -159,3 +159,40 @@
   from, to { opacity: 0; }
   50% { opacity: 1; }
 }
+
+
+@media (max-width: 768px) {
+
+  /* CENTER FORM */
+  .pageTwoContainer {
+    justify-content: center;
+    padding: 90px 20px 30px;
+  }
+
+  .askSection {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  /* STACK INPUT + BUTTON */
+  .askSection form {
+    flex-direction: column;
+  }
+
+  .askSection input {
+    width: 100%;
+  }
+
+  .askSection button {
+    width: 100%;
+  }
+
+  .answerBox {
+    height: 180px;
+  }
+
+  .pageTwoTitle {
+    font-size: 2rem;
+    top: 20px;
+  }
+}
