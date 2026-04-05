@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
+import { canAsk, incrementUsage, getRemaining } from '../../utils/apiLimiter';
 
 export default function Practice() {
   const [topic, setTopic] = useState("");
@@ -65,6 +66,11 @@ export default function Practice() {
       return;
     }
 
+    if (!canAsk()) {
+      setDisplayedQuestion("🚫 Daily limit reached . Try tomorrow!");
+      return;
+    }
+
     setQLoading(true);
     setDisplayedQuestion("");
     setAnswered(false);
@@ -77,6 +83,8 @@ export default function Practice() {
 
       const fullQ = (res.text || "❌ No question generated.").trim();
       setQuestion(fullQ);
+
+      incrementUsage();
 
       for (let i = 0; i < fullQ.length; i++) {
         setDisplayedQuestion((prev) => prev + fullQ[i]);
@@ -95,6 +103,11 @@ export default function Practice() {
   const handleGetAnswer = async () => {
     if (!question || question.startsWith("⚠️") || question.startsWith("⏳"))
       return;
+
+    if (!canAsk()) {
+      setAnimatedAnswer("🚫 Daily limit reached . Try tomorrow!");
+      return;
+    }
 
     setALoading(true);
     setAnimatedAnswer("");
@@ -115,6 +128,8 @@ export default function Practice() {
         .replace(/\\text\{(.*?)\}/g, "$1")
         .replace(/\\frac\{(.*?)\}\{(.*?)\}/g, "$1/$2")
         .trim();
+
+      incrementUsage();
 
       setStatus("");
 

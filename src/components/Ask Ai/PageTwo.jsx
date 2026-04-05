@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./PageTwo.css";
 import { GoogleGenAI } from "@google/genai";
-
+import { canAsk, incrementUsage, getRemaining } from '../../utils/apiLimiter';
 
 export default function PageTwo() {
   const [question, setQuestion] = useState("");
@@ -38,6 +38,11 @@ export default function PageTwo() {
       return;
     }
 
+    if (!canAsk()) {
+    setError("🚫 Daily limit reached . Try tomorrow!");
+    return;
+  }
+
     try {
       setLoading(true);
       setError("");
@@ -53,6 +58,8 @@ export default function PageTwo() {
       const answerText =
         response.text?.trim() || "❌ Could not generate an answer. Try again!";
 
+      incrementUsage();
+      
       await new Promise((r) => setTimeout(r, 1000));
       setStatus("");
 

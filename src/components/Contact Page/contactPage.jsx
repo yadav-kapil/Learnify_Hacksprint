@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ContactPage.css";
+import "./contactPage.css";
 
 const ContactPage = () => {
   const [result, setResult] = useState("");
