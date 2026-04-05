@@ -27,7 +27,12 @@ const MainContent = () => {
             visuals, and voice-based lessons for any subject — helping learners
             understand complex concepts with ease.
           </p>
-          <button className="btnCollaborate">Lets Learn</button>
+          <a
+            href="#askAI"
+            className="btnCollaborate"
+          >
+            Lets Learn
+          </a>
         </div>
       </div>
     </div>

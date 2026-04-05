@@ -2,6 +2,7 @@ import "./Navbar.css";
 import myImage from "./logo.png";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { getRemaining } from '../../utils/apiLimiter';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,7 +31,7 @@ const Navbar = () => {
       </div>
 
       <div className="btn">
-        <button onClick={() => scrollToSection("askAI")}>Try Now</button>
+        <button>Credits : {getRemaining()}</button>
       </div>
 
       {/* ☰ Menu Icon */}

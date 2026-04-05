@@ -74,8 +74,8 @@
 
 /* 💫 Contact Button */
 .btn button {
-  height: 42px;
-  padding: 10px 24px;
+  height: 32px;
+  padding: 4px 18px;
   background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
   border: none;
   border-radius: 30px;

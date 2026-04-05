@@ -83,7 +83,7 @@ export default function PageTwo() {
   };
 
   return (
-    <div className="pageTwoContainer">
+    <div className="pageTwoContainer" id="askAI">
       <h1 className="pageTwoTitle">Ask Learnify AI</h1>
 
       <div className="askSection">
