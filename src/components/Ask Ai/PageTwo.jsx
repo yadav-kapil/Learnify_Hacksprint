@@ -3,7 +3,7 @@ import "./PageTwo.css";
 import { GoogleGenAI } from "@google/genai";
 import { canAsk, incrementUsage, getRemaining } from '../../utils/apiLimiter';
 
-export default function PageTwo() {
+export default function PageTwo({credits, setCredits}) {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
@@ -59,6 +59,7 @@ export default function PageTwo() {
         response.text?.trim() || "❌ Could not generate an answer. Try again!";
 
       incrementUsage();
+      setCredits(getRemaining());
       
       await new Promise((r) => setTimeout(r, 1000));
       setStatus("");

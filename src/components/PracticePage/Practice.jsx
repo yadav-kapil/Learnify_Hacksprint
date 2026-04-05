@@ -7,7 +7,7 @@ import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 import { canAsk, incrementUsage, getRemaining } from '../../utils/apiLimiter';
 
-export default function Practice() {
+export default function Practice({setCredits}) {
   const [topic, setTopic] = useState("");
   const [question, setQuestion] = useState("");
   const [displayedQuestion, setDisplayedQuestion] = useState("");
@@ -85,6 +85,7 @@ export default function Practice() {
       setQuestion(fullQ);
 
       incrementUsage();
+      setCredits(getRemaining());
 
       for (let i = 0; i < fullQ.length; i++) {
         setDisplayedQuestion((prev) => prev + fullQ[i]);
@@ -130,6 +131,7 @@ export default function Practice() {
         .trim();
 
       incrementUsage();
+      setCredits(getRemaining());
 
       setStatus("");
 
