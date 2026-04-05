@@ -1,15 +1,14 @@
 import "./App.css";
-import AboutUs from "./assets/components/About Page/about";
-import AskAI from "./assets/components/Ask Ai/askAnime";
-import PageTwo from "./assets/components/Ask Ai/PageTwo";
-import ContactPage from "./assets/components/Contact Page/contactPage";
-import ContactBtn from "./assets/components/Hero/contactBtn";
-import Hero from "./assets/components/Hero/hero";
-import MainContent from "./assets/components/Hero/mainContent";
-import Hover from "./assets/components/hoverEffect/hover";
-import VideoGenerator from "./assets/components/Image generator/ImageGenerator";
-import Navbar from "./assets/components/Navbar/Navbar";
-import Practice from "./assets/components/PracticePage/Practice";
+import AboutUs from "./components/About Page/about";
+import AskAI from "./components/Ask Ai/askAnime";
+import PageTwo from "./components/Ask Ai/PageTwo";
+import ContactPage from "./components/Contact Page/contactPage";
+import ContactBtn from "./components/Hero/contactBtn";
+import Hero from "./components/Hero/hero";
+import MainContent from "./components/Hero/mainContent";
+import Hover from "./components/hoverEffect/hover";
+import Navbar from "./components/Navbar/Navbar";
+import Practice from "./components/PracticePage/Practice";
 
 function App() {
   return (
