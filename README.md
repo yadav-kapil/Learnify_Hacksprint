@@ -1,16 +1,95 @@
-# React + Vite
+# 📚 Learnify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Learnify** is an AI-powered learning assistant that helps users solve doubts, practice concepts, and learn interactively.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- 🤖 AI-based question answering  
+- 🧠 Practice mode (topic-based questions)  
+- ✍️ Typing animation for responses  
+- 🎙️ Voice output (text-to-speech)  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React (Vite)
+- Google Gemini API
+- CSS
+
+---
+
+## 📂 Project Structure
+
+```
+TECHIFY/
+│
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+│
+├── .env
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
+```
+
+---
+
+## ⚙️ Setup & Installation
+
+### 1. Clone the repository
+```
+git clone https://github.com/yadav-kapil/Learnify_Hacksprint.git
+cd Learnify_Hacksprint
+```
+
+### 2. Install dependencies
+```
+npm install
+```
+
+### 3. Add environment variables
+
+Create a `.env` file in root:
+
+```
+VITE_GEMINI_API_KEY=your_api_key_here
+```
+
+---
+
+## ▶️ Run Locally
+
+```
+npm run dev
+```
+
+---
+
+
+## 👨‍💻 Developer
+
+**Kapil Yadav**  
+GitHub: https://github.com/yadav-kapil
+
+**Amber Jauhari**  
+GitHub: https://github.com/amberjauhari55-coder
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ and follow on GitHub!
